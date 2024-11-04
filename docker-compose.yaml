@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: psql_db
+    ports:
+      - "5432:5432"
+    networks:
+      - phonebook_network
+
+networks:
+  phonebook_network:
+    driver: bridge
